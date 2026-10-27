@@ -781,7 +781,7 @@
           <span style="font-size:0.75rem; opacity:0.8;">多氧化態階梯矩陣</span>
         </div>
 
-        <!-- 1. 常見含氧酸與元數（含 2x2 板書路易士結構，HNO3 已嚴格修正為 O=N(-O)-OH） -->
+        <!-- 1. 常見含氧酸與元數（含 2x2 板書路易士結構，S-O 與 P-O 改為單鍵，HNO3 單鍵配位） -->
         <div class="section-box">
           <div class="sub-head">1. 常見含氧酸與元數</div>
           <div style="font-size:0.82rem; line-height:1.6; margin-bottom: 6px;">
@@ -802,7 +802,7 @@
                 <style>
                   .atom-c { font-size: 11px; font-weight: 900; fill: #f1f5f9; text-anchor: middle; dominant-baseline: central; }
                   .atom-o { font-size: 11px; font-weight: 900; fill: #67e8f9; text-anchor: middle; dominant-baseline: central; }
-                  .atom-h { font-size: 11.5px; font-weight: 900; fill: #fdba74; text-anchor: middle; dominant-baseline: central; } /* H 用醒目粉橘色標示 */
+                  .atom-h { font-size: 11.5px; font-weight: 900; fill: #fdba74; text-anchor: middle; dominant-baseline: central; } /* H 橘色高亮標示 */
                   .bond { stroke: #cbd5e1; stroke-width: 1.6; stroke-linecap: round; }
                   .bond-double { stroke: #cbd5e1; stroke-width: 1.4; stroke-linecap: round; }
                   .struct-tag { font-size: 9px; font-weight: 800; fill: var(--chalk-yellow); text-anchor: middle; }
@@ -845,41 +845,46 @@
                 <text x="122" y="78" class="atom-h">H</text>
               </g>
 
-              <!-- (左下) H2SO4 硫酸 -->
+              <!-- (左下) H2SO4 硫酸 (S-O 單鍵) -->
               <g transform="translate(0, 115)">
                 <text x="70" y="16" class="struct-tag">H₂SO₄ 硫酸 (二元)</text>
                 <text x="70" y="60" class="atom-c">S</text>
-                <line x1="68" y1="52" x2="68" y2="38" class="bond-double" />
-                <line x1="72" y1="52" x2="72" y2="38" class="bond-double" />
+                <!-- 上方 -O 單鍵 -->
+                <line x1="70" y1="52" x2="70" y2="38" class="bond" />
                 <text x="70" y="32" class="atom-o">O</text>
-                <line x1="68" y1="68" x2="68" y2="82" class="bond-double" />
-                <line x1="72" y1="68" x2="72" y2="82" class="bond-double" />
+                <!-- 下方 -O 單鍵 -->
+                <line x1="70" y1="68" x2="70" y2="82" class="bond" />
                 <text x="70" y="88" class="atom-o">O</text>
+                <!-- 左側 -O-H -->
                 <line x1="62" y1="60" x2="48" y2="60" class="bond" />
                 <text x="42" y="60" class="atom-o">O</text>
                 <line x1="36" y1="60" x2="25" y2="60" class="bond" />
                 <text x="18" y="60" class="atom-h">H</text>
+                <!-- 右側 -O-H -->
                 <line x1="78" y1="60" x2="92" y2="60" class="bond" />
                 <text x="98" y="60" class="atom-o">O</text>
                 <line x1="104" y1="60" x2="115" y2="60" class="bond" />
                 <text x="122" y="60" class="atom-h">H</text>
               </g>
 
-              <!-- (右下) H3PO4 磷酸 -->
+              <!-- (右下) H3PO4 磷酸 (P-O 單鍵) -->
               <g transform="translate(140, 115)">
                 <text x="70" y="16" class="struct-tag">H₃PO₄ 磷酸 (三元)</text>
                 <text x="70" y="58" class="atom-c">P</text>
-                <line x1="68" y1="50" x2="68" y2="36" class="bond-double" />
-                <line x1="72" y1="50" x2="72" y2="36" class="bond-double" />
+                <!-- 上方 -O 單鍵 -->
+                <line x1="70" y1="50" x2="70" y2="36" class="bond" />
                 <text x="70" y="30" class="atom-o">O</text>
+                <!-- 左側 -O-H -->
                 <line x1="62" y1="55" x2="48" y2="55" class="bond" />
                 <text x="42" y="55" class="atom-o">O</text>
                 <line x1="36" y1="55" x2="25" y2="55" class="bond" />
                 <text x="18" y="55" class="atom-h">H</text>
+                <!-- 下方 -O-H -->
                 <line x1="70" y1="65" x2="70" y2="78" class="bond" />
                 <text x="70" y="84" class="atom-o">O</text>
                 <line x1="70" y1="90" x2="70" y2="99" class="bond" />
                 <text x="70" y="105" class="atom-h">H</text>
+                <!-- 右側 -O-H -->
                 <line x1="78" y1="55" x2="92" y2="55" class="bond" />
                 <text x="98" y="55" class="atom-o">O</text>
                 <line x1="104" y1="55" x2="115" y2="55" class="bond" />
@@ -893,7 +898,7 @@
           </div>
         </div>
 
-        <!-- 2. 板書 100% 擬真：多氧化態矩陣表格（過酸 / 正酸 / 亞酸 / 次酸） -->
+        <!-- 2. 多氧化態矩陣表格（過酸 / 正酸 / 亞酸 / 次酸） -->
         <div class="section-box" style="border-left-color: var(--chalk-orange); padding: 8px 6px;">
           <div class="sub-head" style="color:var(--chalk-orange); margin-bottom: 5px;">
             2. 多氧化態含氧酸對齊矩陣
@@ -961,7 +966,7 @@
           </div>
         </div>
 
-        <!-- 磷酸家族元數陷阱 -->
+        <!-- 磷酸家族元數陷阱：精確路易士結構與示性式展氏引導 -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-yellow);">
           <div class="sub-head" style="color:var(--chalk-yellow); margin-bottom:2px;">
             ⚠️ 大考必考陷阱：磷酸家族之結構
@@ -970,56 +975,110 @@
             含氧酸中<b>只有連在氧上的 H (-OH) 才能游離出 H⁺</b>！直接接在 P 上的 H 不具酸性！
           </div>
 
-          <!-- SVG 磷酸家族微觀結構圖 -->
-          <div class="diagram-wrap">
-            <svg viewBox="0 0 260 85">
-              <!-- H3PO4 -->
-              <g transform="translate(10, 5)">
-                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₄ 磷酸</text>
-                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
-                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
-                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
-                <text x="5" y="48" fill="#86efac" font-size="7">-OH</text>
-                <text x="25" y="55" fill="#86efac" font-size="7" text-anchor="middle">-OH</text>
-                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
-                <text x="25" y="74" fill="var(--chalk-cyan)" font-size="8.5" font-weight="bold" text-anchor="middle">三元酸</text>
+          <!-- SVG 磷酸家族路易士結構展開圖 -->
+          <div class="diagram-wrap" style="padding: 8px 4px; background: rgba(0,0,0,0.32);">
+            <svg viewBox="0 0 310 120" style="width: 100%; max-width: 360px; margin: 0 auto; display: block;">
+              <defs>
+                <style>
+                  .lp-p { font-size: 11px; font-weight: 900; fill: #fde047; text-anchor: middle; dominant-baseline: central; }
+                  .lp-o { font-size: 11px; font-weight: 900; fill: #67e8f9; text-anchor: middle; dominant-baseline: central; }
+                  .lp-oh-h { font-size: 11px; font-weight: 900; fill: #86efac; text-anchor: middle; dominant-baseline: central; } /* 可解離 OH 上的 H 用亮綠色 */
+                  .lp-ph-h { font-size: 11px; font-weight: 900; fill: #f87171; text-anchor: middle; dominant-baseline: central; } /* 不可解離 P-H 上的 H 用警示紅色 */
+                  .lp-bond { stroke: #cbd5e1; stroke-width: 1.5; stroke-linecap: round; }
+                  .lp-title { font-size: 9.5px; font-weight: 800; fill: var(--chalk-yellow); text-anchor: middle; }
+                  .lp-type { font-size: 9.5px; font-weight: 900; text-anchor: middle; }
+                </style>
+              </defs>
+
+              <!-- 1. H3PO4 磷酸 (三元酸) -->
+              <g transform="translate(10, 0)">
+                <text x="45" y="12" class="lp-title">H₃PO₄ 磷酸</text>
+                <text x="45" y="52" class="lp-p">P</text>
+                <line x1="45" y1="44" x2="45" y2="31" class="lp-bond" />
+                <text x="45" y="25" class="lp-o">O</text>
+                <line x1="37" y1="52" x2="26" y2="52" class="lp-bond" />
+                <text x="20" y="52" class="lp-o">O</text>
+                <line x1="14" y1="52" x2="7" y2="52" class="lp-bond" />
+                <text x="2" y="52" class="lp-oh-h">H</text>
+                <line x1="53" y1="52" x2="64" y2="52" class="lp-bond" />
+                <text x="70" y="52" class="lp-o">O</text>
+                <line x1="76" y1="52" x2="83" y2="52" class="lp-bond" />
+                <text x="88" y="52" class="lp-oh-h">H</text>
+                <line x1="45" y1="60" x2="45" y2="71" class="lp-bond" />
+                <text x="45" y="77" class="lp-o">O</text>
+                <line x1="45" y1="83" x2="45" y2="90" class="lp-bond" />
+                <text x="45" y="96" class="lp-oh-h">H</text>
+                <text x="45" y="112" class="lp-type" fill="var(--chalk-cyan)">三元酸</text>
               </g>
 
-              <!-- H3PO3 -->
-              <g transform="translate(95, 5)">
-                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₃ 亞磷酸</text>
-                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
-                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
-                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
-                <text x="5" y="48" fill="#86efac" font-size="7">-OH</text>
-                <text x="25" y="55" fill="#f87171" font-size="7" text-anchor="middle">-H</text>
-                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
-                <text x="25" y="74" fill="var(--chalk-orange)" font-size="8.5" font-weight="bold" text-anchor="middle">二元酸 ⚠️</text>
+              <line x1="105" y1="10" x2="105" y2="115" stroke="rgba(255,255,255,0.15)" stroke-dasharray="2,2" />
+
+              <!-- 2. H3PO3 亞磷酸 (二元酸) -->
+              <g transform="translate(110, 0)">
+                <text x="45" y="12" class="lp-title">H₃PO₃ 亞磷酸</text>
+                <text x="45" y="52" class="lp-p">P</text>
+                <line x1="45" y1="44" x2="45" y2="31" class="lp-bond" />
+                <text x="45" y="25" class="lp-o">O</text>
+                <line x1="37" y1="52" x2="26" y2="52" class="lp-bond" />
+                <text x="20" y="52" class="lp-o">O</text>
+                <line x1="14" y1="52" x2="7" y2="52" class="lp-bond" />
+                <text x="2" y="52" class="lp-oh-h">H</text>
+                <line x1="53" y1="52" x2="64" y2="52" class="lp-bond" />
+                <text x="70" y="52" class="lp-o">O</text>
+                <line x1="76" y1="52" x2="83" y2="52" class="lp-bond" />
+                <text x="88" y="52" class="lp-oh-h">H</text>
+                <line x1="45" y1="60" x2="45" y2="76" class="lp-bond" />
+                <text x="45" y="84" class="lp-ph-h">H</text>
+                <text x="45" y="112" class="lp-type" fill="var(--chalk-orange)">二元酸 ⚠️</text>
               </g>
 
-              <!-- H3PO2 -->
-              <g transform="translate(180, 5)">
-                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₂ 次磷酸</text>
-                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
-                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
-                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
-                <text x="5" y="48" fill="#f87171" font-size="7">-H</text>
-                <text x="25" y="55" fill="#f87171" font-size="7" text-anchor="middle">-H</text>
-                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
-                <text x="25" y="74" fill="var(--chalk-red)" font-size="8.5" font-weight="bold" text-anchor="middle">一元酸 ⚠️</text>
+              <line x1="205" y1="10" x2="205" y2="115" stroke="rgba(255,255,255,0.15)" stroke-dasharray="2,2" />
+
+              <!-- 3. H3PO2 次磷酸 (一元酸) -->
+              <g transform="translate(210, 0)">
+                <text x="45" y="12" class="lp-title">H₃PO₂ 次磷酸</text>
+                <text x="45" y="52" class="lp-p">P</text>
+                <line x1="45" y1="44" x2="45" y2="31" class="lp-bond" />
+                <text x="45" y="25" class="lp-o">O</text>
+                <line x1="37" y1="52" x2="22" y2="52" class="lp-bond" />
+                <text x="15" y="52" class="lp-ph-h">H</text>
+                <line x1="53" y1="52" x2="64" y2="52" class="lp-bond" />
+                <text x="70" y="52" class="lp-o">O</text>
+                <line x1="76" y1="52" x2="83" y2="52" class="lp-bond" />
+                <text x="88" y="52" class="lp-oh-h">H</text>
+                <line x1="45" y1="60" x2="45" y2="76" class="lp-bond" />
+                <text x="45" y="84" class="lp-ph-h">H</text>
+                <text x="45" y="112" class="lp-type" fill="var(--chalk-red)">一元酸 ⚠️</text>
               </g>
             </svg>
+
+            <div style="font-size: 0.74rem; display: flex; justify-content: center; gap: 10px; margin-top: 4px; flex-wrap: wrap;">
+              <span>🟢 <b style="color:#86efac;">-O-H</b>：酸性氫（可游離）</span>
+              <span>🔴 <b style="color:#f87171;">P-H</b>：直接接在 P 上的氫（不解離）</span>
+            </div>
           </div>
 
-          <div style="font-size:0.8rem; margin-top:4px; text-align:center;">
+          <div style="font-size:0.8rem; margin-top:5px; text-align:center; line-height: 1.6;">
             • H₃PO₄ (3個-OH) 👉 <span class="cloze" style="font-weight:bold;">三元酸</span><br>
             • H₃PO₃ (2個-OH, 1個P-H) 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元酸</span><br>
             • H₃PO₂ (1個-OH, 2個P-H) 👉 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">一元酸</span>
           </div>
+
+          <!-- 展氏引導（示性式改寫破解迷思） -->
+          <div style="margin-top: 6px; padding: 7px 9px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px dashed var(--chalk-yellow); font-size: 0.79rem; line-height: 1.6;">
+            <div style="font-weight: 800; color: var(--chalk-yellow); margin-bottom: 3px;">
+              💡 展氏引導：經由路易士結構改寫為「示性式」
+            </div>
+            <div>
+              為了明確凸顯酸的元數，常將可解離的 H⁺ 獨立寫在最前方：<br>
+              • <b>亞磷酸</b> (H₃PO₃) 改寫成 👉 <span class="cloze" style="font-weight:bold; color:var(--chalk-cyan);">H₂(HPO₃)</span>，清楚表示為<b>二元酸 (雙質子酸)</b><br>
+              • <b>次磷酸</b> (H₃PO₂) 改寫成 👉 <span class="cloze" style="font-weight:bold; color:var(--chalk-green);">H(H₂PO₂)</span>，清楚表示為<b>一元酸 (單質子酸)</b>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 第 3 欄：鹼命名與元數特性（包含 Al(OH)3 解離式與 NH3/PH3 一元鹼深度解析） -->
+      <!-- 第 3 欄：鹼命名與元數特性（包含 Al(OH)3 解離式、NH3/PH3 解析與展氏金鑰更新） -->
       <div class="col-card">
         <div class="col-title">
           <span>三、鹼命名與元數特性</span>
@@ -1036,7 +1095,7 @@
             • <b>Al(OH)₃</b>：<span class="cloze">氫氧化鋁</span>（<span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">三元鹼</span>）
           </div>
 
-          <!-- 新增：Al(OH)3 產生 3OH- 方程式 -->
+          <!-- Al(OH)3 產生 3OH- 方程式 -->
           <div class="chem-eq-hero" style="font-size:0.82rem; margin:6px 0 2px 0; color:var(--chalk-orange);">
             Al(OH)₃ ⇌ Al³⁺ ＋ 3 OH⁻
           </div>
@@ -1086,10 +1145,14 @@
           </div>
         </div>
 
-        <div class="mnemonic-box">
+        <!-- ★ 展氏金鑰：更新元數定義與水解被動促釋機制 -->
+        <div class="mnemonic-box" style="padding: 8px 10px; margin-top: 6px;">
           <span style="font-size:0.78rem; opacity:0.85;">★ 展氏金鑰：</span>
-          <div style="font-size:0.82rem; font-weight:bold; color:var(--chalk-yellow); text-align:center; margin-top:2px;">
-            「幾元鹼」看其每莫耳能提供或結合幾莫耳 H⁺！
+          <div style="font-size:0.86rem; font-weight:bold; color:var(--chalk-yellow); text-align:center; margin: 3px 0;">
+            「幾元鹼」表示每莫耳能結合 <span class="cloze" style="color:var(--chalk-green); font-size:0.92rem;">幾莫耳 H⁺</span>！
+          </div>
+          <div style="font-size:0.78rem; color:var(--text-sub); line-height:1.55; margin-top:4px; border-top:1px dashed rgba(253, 224, 71, 0.3); padding-top:4px;">
+            💡 <b>觀念突破</b>：鹼<b>不一定能直接釋放 OH⁻</b>，也可能是透過與 H₂O 中的 H⁺ 結合，進而<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">使水釋放 OH⁻</span>！
           </div>
         </div>
       </div>
@@ -1157,7 +1220,7 @@
       </div>
 
       <div class="extension-grid">
-        <!-- 區塊 A：含氧酸氧化態與酸性強弱之微觀成因（已修正為 Cl-O） -->
+        <!-- 區塊 A：含氧酸氧化態與酸性強弱之微觀成因（非羥基氧精準為 Cl-O） -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.92rem;">
             📌 A. 為什麼「氧化態愈高，含氧酸酸性愈強」？
@@ -1265,12 +1328,12 @@
         question: "亞磷酸 (H₃PO₃) 與次磷酸 (H₃PO₂) 是大考常考的結構陷阱題，下列敘述何者完全正確？",
         options: [
           "A. 因為分子式中皆含有 3 個氫原子，所以 H₃PO₄、H₃PO₃、H₃PO₂ 皆為三元酸",
-          "B. H₃PO₃ 中有 1 個氫直接與磷相連 (P-H)，故在水中只能解離出 2 個 H⁺，為二元酸",
+          "B. H₃PO₃ 中有 1 個氫直接與磷相連 (P-H)，示性式為 H₂(HPO₃)，為二元酸",
           "C. NaH₂PO₂ 含有 2 個氫，所以溶於水為酸式鹽且水溶液必呈強酸性",
           "D. H₃PO₂ 與足量 NaOH 反應，1 莫耳次磷酸可消耗 3 莫耳 NaOH"
         ],
         answer: 1,
-        explanation: "【展氏新解解析】：<br>1. 含氧酸中只有連在電負度大的氧原子上的氫 (-OH) 才能解離為 H⁺。<br>2. H₃PO₃ 有兩個 -OH 與一個 P-H，故為二元酸；H₃PO₂ 只有一個 -OH 與兩個 P-H，故為一元酸。<br>3. 因此 NaH₂PO₂ 已將唯一的酸性氫中和完畢，屬於「正鹽」，而非酸式鹽！"
+        explanation: "【展氏新解解析】：<br>1. 含氧酸中只有連在電負度大的氧原子上的氫 (-OH) 才能解離為 H⁺。<br>2. H₃PO₃ 有兩個 -OH 與一個 P-H，示性式改寫為 H₂(HPO₃)，故為二元酸；H₃PO₂ 只有一個 -OH 與兩個 P-H，示性式為 H(H₂PO₂)，故為一元酸。<br>3. 因此 NaH₂PO₂ 已將唯一的酸性氫中和完畢，屬於「正鹽」，而非酸式鹽！"
       },
       {
         id: 3,
@@ -1391,7 +1454,7 @@
     }
 
     function toggleCloze() {
-      const isCloze = document.body.classList.toggle('cloze-mode');
+      document.body.classList.toggle('cloze-mode');
       document.querySelectorAll('.cloze').forEach(el => {
         el.classList.remove('revealed');
       });
