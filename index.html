@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【展氏新解】酸鹼命名、元數與結構本質：從非含氧酸到多元共軛鹼</title>
+  <style>
+    :root {
+      --bg-board: #142c1f;
+      --board-frame: #3d2314;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.16);
+      --text-main: #f1f5f9;
+      --text-sub: #cbd5e1;
+      --chalk-yellow: #fde047;
+      --chalk-cyan: #67e8f9;
+      --chalk-orange: #fdba74;
+      --chalk-green: #86efac;
+      --chalk-red: #f87171;
+      --highlight-bg: rgba(253, 224, 71, 0.18);
+      --section-box-bg: rgba(0, 0, 0, 0.22);
+      --reaction-bg: rgba(0, 0, 0, 0.35);
+      --diagram-bg: rgba(0, 0, 0, 0.28);
+      --table-th-bg: rgba(255, 255, 255, 0.1);
+      --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+      /* 延伸思維專屬色調（深邃紫藍） */
+      --ext-card-bg: #131a2e;
+      --ext-card-border: #3b4261;
+      --ext-title: #c084fc;
+      --ext-badge-bg: rgba(192, 132, 252, 0.18);
+      --ext-badge-border: #a855f7;
+      --ext-inner-box: rgba(0, 0, 0, 0.3);
+    }
+
+    body.theme-paper {
+      --bg-board: #ffffff;
+      --board-frame: #94a3b8;
+      --card-bg: #f8fafc;
+      --card-border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-sub: #334155;
+      --chalk-yellow: #92400e;
+      --chalk-cyan: #0284c7;
+      --chalk-orange: #c2410c;
+      --chalk-green: #15803d;
+      --chalk-red: #b91c1c;
+      --highlight-bg: #fef3c7;
+      --section-box-bg: #f1f5f9;
+      --reaction-bg: #e2e8f0;
+      --diagram-bg: #f8fafc;
+      --table-th-bg: #e2e8f0;
+      --box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+      --ext-card-bg: #f5f3ff;
+      --ext-card-border: #c7d2fe;
+      --ext-title: #4338ca;
+      --ext-badge-bg: #ede9fe;
+      --ext-badge-border: #6366f1;
+      --ext-inner-box: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background-color: #08100c;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text-main);
+      padding: 8px;
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-wrap: pretty;
+    }
+
+    body.theme-paper { background-color: #e2e8f0; }
+
+    .toolbar {
+      width: 100%;
+      max-width: 1440px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      padding: 10px 16px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    body.theme-paper .toolbar {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .toolbar-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-tag {
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .toolbar-title {
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 680px) {
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .toolbar-title-wrap {
+        margin-bottom: 4px;
+      }
+      .btn-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        width: 100%;
+      }
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    .btn {
+      padding: 7px 14px;
+      font-size: 0.86rem;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #2563eb !important;
+      color: #ffffff !important;
+      border-color: #3b82f6 !important;
+    }
+
+    .board-container {
+      width: 100%;
+      max-width: 1440px;
+      background-color: var(--bg-board);
+      border: 8px solid var(--board-frame);
+      border-radius: 14px;
+      box-shadow: var(--box-shadow);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 24px;
+      transition: background-color 0.25s, border-color 0.25s;
+    }
+
+    @media (max-width: 600px) {
+      .board-container {
+        border-width: 5px;
+        padding: 8px;
+      }
+    }
+
+    .board-header {
+      text-align: center;
+      border-bottom: 2px dashed var(--card-border);
+      padding-bottom: 10px;
+    }
+
+    .main-title-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .board-header h1 {
+      font-size: clamp(1.25rem, 4vw, 1.65rem);
+      letter-spacing: 1.5px;
+      color: var(--chalk-yellow);
+      font-weight: 900;
+    }
+
+    .badge-pill {
+      font-size: 0.78rem;
+      background: var(--highlight-bg);
+      color: var(--chalk-cyan);
+      padding: 3px 8px;
+      border-radius: 20px;
+      border: 1px solid var(--chalk-cyan);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 1100px) {
+      .board-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .board-grid { grid-template-columns: 1fr; }
+    }
+
+    .col-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .col-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      border-bottom: 2px solid var(--chalk-cyan);
+      padding-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .section-box {
+      background: var(--section-box-bg);
+      border-left: 3px solid var(--chalk-yellow);
+      padding: 9px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .sub-head {
+      font-weight: 800;
+      color: var(--chalk-cyan);
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .reaction-box {
+      background: var(--reaction-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 9px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Noto Sans TC", monospace;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+
+    .chem-eq-hero {
+      font-weight: 900;
+      color: var(--chalk-green);
+      font-size: clamp(0.92rem, 3.2vw, 1.05rem);
+      text-align: center;
+      padding: 6px 4px;
+      margin: 4px 0 6px 0;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      border: 1px dashed var(--card-border);
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .chem-eq-hero::-webkit-scrollbar { display: none; }
+
+    .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+    }
+    .role-table th, .role-table td {
+      padding: 4px 6px;
+      text-align: center;
+      border: 1px solid var(--card-border);
+    }
+    .role-table th {
+      background: var(--table-th-bg);
+      font-weight: 800;
+    }
+
+    .note-pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--highlight-bg);
+      color: var(--chalk-yellow);
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .mnemonic-box {
+      background: rgba(253, 224, 71, 0.12);
+      border: 1px dashed var(--chalk-yellow);
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-top: 5px;
+    }
+
+    .diagram-wrap {
+      width: 100%;
+      background: var(--diagram-bg);
+      border-radius: 8px;
+      padding: 6px 4px;
+      text-align: center;
+      border: 1px solid var(--card-border);
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* 延伸思維專區 */
+    .extension-container {
+      background: var(--ext-card-bg);
+      border: 2px solid var(--ext-card-border);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.25);
+    }
+
+    .extension-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 2px solid var(--ext-badge-border);
+      padding-bottom: 8px;
+    }
+
+    .extension-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--ext-title);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .extension-badge {
+      font-size: 0.78rem;
+      background: var(--ext-badge-bg);
+      border: 1px solid var(--ext-badge-border);
+      color: var(--ext-title);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 800;
+    }
+
+    .extension-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .extension-grid { grid-template-columns: 1fr; }
+    }
+
+    .ext-box {
+      background: var(--ext-inner-box);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 11px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .ext-box ul {
+      padding-left: 16px;
+      margin: 4px 0;
+    }
+
+    .ext-box li {
+      margin-bottom: 4px;
+    }
+
+    /* 課堂挖空功能 */
+    .cloze { transition: all 0.2s; }
+    body.cloze-mode .cloze {
+      background: #334155 !important;
+      color: transparent !important;
+      border-radius: 4px;
+      padding: 0 4px;
+      cursor: pointer;
+      user-select: none;
+      border: 1px dashed var(--chalk-yellow);
+      display: inline-block;
+    }
+    body.cloze-mode.theme-paper .cloze {
+      background: #cbd5e1 !important;
+      border: 1px dashed #475569;
+    }
+    body.cloze-mode .cloze.revealed {
+      background: var(--highlight-bg) !important;
+      color: var(--text-main) !important;
+      border: 1px solid var(--chalk-green);
+    }
+
+    /* 測驗 Modal 視窗 */
+    .quiz-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      overflow-y: auto;
+      padding: 16px 8px;
+    }
+
+    .quiz-modal.active {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .quiz-card-container {
+      background: #0f172a;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 860px;
+      color: #f8fafc;
+      padding: 16px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    body.theme-paper .quiz-card-container {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #475569;
+      padding-bottom: 10px;
+    }
+
+    .quiz-stats-bar {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.06);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      align-items: center;
+    }
+
+    body.theme-paper .quiz-stats-bar {
+      background: #f1f5f9;
+    }
+
+    .question-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    body.theme-paper .question-block {
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+
+    .q-title-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .q-badge {
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #3b82f6;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .opt-btn {
+      text-align: left;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid #475569;
+      color: inherit;
+      cursor: pointer;
+      font-size: 0.86rem;
+      transition: all 0.15s;
+    }
+
+    body.theme-paper .opt-btn {
+      background: #ffffff;
+      border-color: #cbd5e1;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .opt-btn.correct {
+      background: #14532d !important;
+      border-color: #22c55e !important;
+      color: #86efac !important;
+      font-weight: bold;
+    }
+
+    body.theme-paper .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+    }
+
+    .opt-btn.wrong {
+      background: #7f1d1d !important;
+      border-color: #ef4444 !important;
+      color: #fca5a5 !important;
+      font-weight: bold;
+    }
+
+    body.theme-paper .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .expl-box {
+      margin-top: 4px;
+      padding: 8px;
+      background: rgba(0,0,0,0.3);
+      border-left: 3px solid #f59e0b;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      display: none;
+      line-height: 1.5;
+    }
+
+    body.theme-paper .expl-box {
+      background: #f1f5f9;
+    }
+
+    .expl-box.show {
+      display: block;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 14px 0 6px 0;
+      border-top: 1px dashed var(--card-border);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .footer-copyright {
+      font-weight: 800;
+      color: var(--chalk-yellow);
+      letter-spacing: 1px;
+    }
+
+    @media print {
+      .toolbar, .quiz-modal { display: none !important; }
+      body { background: #ffffff !important; padding: 0 !important; }
+      .board-container { border: none !important; box-shadow: none !important; max-width: 100% !important; padding: 0 !important; }
+      .board-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+      @page { size: A4 landscape; margin: 5mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 控制列 -->
+  <div class="toolbar">
+    <div class="toolbar-title-wrap">
+      <span class="brand-tag">展氏新解</span>
+      <span class="toolbar-title">酸鹼命名與元數結構：非含氧酸、含氧酸氧化態與多元共軛鹼</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="openQuiz()">📝 進入隨堂測驗</button>
+      <button class="btn" onclick="toggleTheme()">🎨 切換黑板/紙本模式</button>
+      <button class="btn" onclick="toggleCloze()">✏️ 課堂挖空複習</button>
+      <button class="btn" onclick="window.print()">🖨️ 列印 A4 講義</button>
+    </div>
+  </div>
+
+  <div class="board-container">
+    
+    <!-- 頂部大標題 -->
+    <div class="board-header">
+      <div class="main-title-wrap">
+        <span class="brand-tag" style="font-size:0.95rem; padding:3px 8px;">展氏新解</span>
+        <h1>酸鹼命名與元數結構 (四)</h1>
+        <span class="badge-pill">氣體與水溶液命名雙軌 · 含氧酸氧化數階梯 · 磷酸家族元數陷阱 · 多元共軛鹼水解</span>
+      </div>
+    </div>
+
+    <!-- 主板書四大欄位 -->
+    <div class="board-grid">
+
+      <!-- 第 1 欄：酸命名（非含氧酸） -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>一、酸命名：非含氧酸</span>
+          <span style="font-size:0.75rem; opacity:0.8;">某化氫 vs 氫某酸</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 命名規則：相態決定名稱！</div>
+          <p style="font-size:0.82rem; margin-bottom:6px;">
+            • <b>純物質／氣體 (g)</b>：稱作「<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">某化氫</span>」<br>
+            • <b>水溶液 (aq)</b>：稱作「<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">氫某酸</span>」（某化氫水溶液）
+          </p>
+
+          <table class="role-table">
+            <tr>
+              <th style="color:var(--chalk-yellow);">氣體純物質 (g)</th>
+              <th style="color:var(--chalk-cyan);">水溶液 (aq)</th>
+            </tr>
+            <tr>
+              <td>HCl<sub>(g)</sub>：<span class="cloze">氯化氫</span></td>
+              <td>HCl<sub>(aq)</sub>：<span class="cloze">氫氯酸 (鹽酸)</span></td>
+            </tr>
+            <tr>
+              <td>HBr<sub>(g)</sub>：<span class="cloze">溴化氫</span></td>
+              <td>HBr<sub>(aq)</sub>：<span class="cloze">氫溴酸</span></td>
+            </tr>
+            <tr>
+              <td>HI<sub>(g)</sub>：<span class="cloze">碘化氫</span></td>
+              <td>HI<sub>(aq)</sub>：<span class="cloze">氫碘酸</span></td>
+            </tr>
+            <tr>
+              <td>H₂S<sub>(g)</sub>：<span class="cloze">硫化氫</span></td>
+              <td>H₂S<sub>(aq)</sub>：<span class="cloze">氫硫酸</span></td>
+            </tr>
+            <tr>
+              <td>HCN<sub>(g)</sub>：<span class="cloze">氰化氫</span></td>
+              <td>HCN<sub>(aq)</sub>：<span class="cloze">氫氰酸</span></td>
+            </tr>
+            <tr>
+              <td>HF<sub>(g)</sub>：<span class="cloze">氟化氫</span></td>
+              <td>HF<sub>(aq)</sub>：<span class="cloze">氫氟酸</span></td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 強酸 vs 弱酸 分類整理 -->
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-red);">
+          <div class="sub-head" style="color:var(--chalk-red); margin-bottom:4px;">⚖️ 非含氧酸的強弱劃分：</div>
+          <div style="font-size:0.83rem; line-height:1.6;">
+            <div>🔴 <b>是強酸的有</b>：<br>
+              <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">HCl、HBr、HI</span>
+            </div>
+            <div style="margin-top:4px;">🟢 <b>是弱酸的有</b>：<br>
+              <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">HF、H₂S、HCN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          💡 易錯警惕：HF 雖腐蝕玻璃，但在水中為「弱酸」！
+        </div>
+      </div>
+
+      <!-- 第 2 欄：含氧酸與多氧化態（重點：磷酸家族） -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>二、含氧酸與多氧化態</span>
+          <span style="font-size:0.75rem; opacity:0.8;">磷酸家族結構陷阱</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 常見含氧酸與元數</div>
+          <div style="font-size:0.82rem; line-height:1.6;">
+            • <b>H₂CO₃</b>：<span class="cloze">碳酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">二元酸</span>）<br>
+            • <b>HNO₃</b>：<span class="cloze">硝酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span>）<br>
+            • <b>H₂SO₄</b>：<span class="cloze">硫酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">二元酸</span>）<br>
+            • <b>H₃PO₄</b>：<span class="cloze">磷酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">三元酸</span>）
+          </div>
+        </div>
+
+        <!-- 多氧化態命名階梯 -->
+        <div class="section-box" style="border-left-color: var(--chalk-orange);">
+          <div class="sub-head" style="color:var(--chalk-orange);">2. 多氧化態命名序列</div>
+          <div class="chem-eq-hero" style="font-size:0.85rem; color:var(--chalk-cyan);">
+            過酸 &gt; 正酸 &gt; 亞酸 &gt; 次酸
+          </div>
+          <div style="font-size:0.79rem; line-height:1.5;">
+            • <b>氯系列</b>：<span class="cloze">HClO₄ (過氯酸) &gt; HClO₃ (氯酸) &gt; HClO₂ (亞氯酸) &gt; HClO (次氯酸)</span><br>
+            • <b>錳系列</b>：<span class="cloze">HMnO₄ (過錳酸) &gt; H₂MnO₄ (錳酸)</span><br>
+            • <b>氮與硫</b>：<span class="cloze">HNO₃ (硝酸) &gt; HNO₂ (亞硝酸)</span>；<span class="cloze">H₂SO₄ (硫酸) &gt; H₂SO₃ (亞硫酸)</span>
+          </div>
+        </div>
+
+        <!-- 磷酸家族元數陷阱 -->
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-yellow);">
+          <div class="sub-head" style="color:var(--chalk-yellow); margin-bottom:2px;">
+            ⚠️ 大考必考陷阱：磷酸家族之結構
+          </div>
+          <div style="font-size:0.81rem; line-height:1.5; margin-bottom:4px;">
+            含氧酸中<b>只有連在氧上的 H (-OH) 才能游離出 H⁺</b>！直接接在 P 上的 H 不具酸性！
+          </div>
+
+          <!-- SVG 磷酸家族微觀結構圖 -->
+          <div class="diagram-wrap">
+            <svg viewBox="0 0 260 85">
+              <!-- H3PO4 -->
+              <g transform="translate(10, 5)">
+                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₄ 磷酸</text>
+                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
+                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
+                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
+                <text x="5" y="48" fill="#86efac" font-size="7">-OH</text>
+                <text x="25" y="55" fill="#86efac" font-size="7" text-anchor="middle">-OH</text>
+                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
+                <text x="25" y="74" fill="var(--chalk-cyan)" font-size="8.5" font-weight="bold" text-anchor="middle">三元酸</text>
+              </g>
+
+              <!-- H3PO3 -->
+              <g transform="translate(95, 5)">
+                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₃ 亞磷酸</text>
+                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
+                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
+                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
+                <text x="5" y="48" fill="#86efac" font-size="7">-OH</text>
+                <text x="25" y="55" fill="#f87171" font-size="7" text-anchor="middle">-H</text>
+                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
+                <text x="25" y="74" fill="var(--chalk-orange)" font-size="8.5" font-weight="bold" text-anchor="middle">二元酸 ⚠️</text>
+              </g>
+
+              <!-- H3PO2 -->
+              <g transform="translate(180, 5)">
+                <text x="25" y="12" fill="var(--chalk-yellow)" font-size="9" font-weight="bold" text-anchor="middle">H₃PO₂ 次磷酸</text>
+                <circle cx="25" cy="35" r="7" fill="#f59e0b" />
+                <text x="25" y="38" fill="#fff" font-size="8" font-weight="bold" text-anchor="middle">P</text>
+                <text x="25" y="24" fill="#67e8f9" font-size="8" text-anchor="middle">=O</text>
+                <text x="5" y="48" fill="#f87171" font-size="7">-H</text>
+                <text x="25" y="55" fill="#f87171" font-size="7" text-anchor="middle">-H</text>
+                <text x="45" y="48" fill="#86efac" font-size="7" text-anchor="end">-OH</text>
+                <text x="25" y="74" fill="var(--chalk-red)" font-size="8.5" font-weight="bold" text-anchor="middle">一元酸 ⚠️</text>
+              </g>
+            </svg>
+          </div>
+
+          <div style="font-size:0.8rem; margin-top:4px; text-align:center;">
+            • H₃PO₄ (3個-OH) 👉 <span class="cloze" style="font-weight:bold;">三元酸</span><br>
+            • H₃PO₃ (2個-OH, 1個P-H) 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元酸</span><br>
+            • H₃PO₂ (1個-OH, 2個P-H) 👉 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">一元酸</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第 3 欄：鹼命名與元數特性 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>三、鹼命名與元數特性</span>
+          <span style="font-size:0.75rem; opacity:0.8;">氫氧化某與分子鹼</span>
+        </div>
+
+        <div class="section-box">
+          <div class="sub-head">1. 金屬氫氧化物命名與元數</div>
+          <div style="font-size:0.82rem; line-height:1.65;">
+            • <b>NaOH</b>：<span class="cloze">氫氧化鈉</span>（<span class="cloze" style="color:var(--chalk-green);">一元鹼</span>）<br>
+            • <b>KOH</b>：<span class="cloze">氫氧化鉀</span>（<span class="cloze" style="color:var(--chalk-green);">一元鹼</span>）<br>
+            • <b>Ca(OH)₂</b>：<span class="cloze">氫氧化鈣</span>（<span class="cloze" style="color:var(--chalk-yellow);">二元鹼</span>）<br>
+            • <b>Al(OH)₃</b>：<span class="cloze">氫氧化鋁</span>（<span class="cloze" style="color:var(--chalk-orange);">三元鹼</span>）
+          </div>
+        </div>
+
+        <!-- 其它弱鹼：氨氣水溶液 vs 膦 (PH3) 對比 -->
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-cyan);">
+          <div class="sub-head" style="color:var(--chalk-cyan); margin-bottom:3px;">
+            2. 其他分子鹼：氨水與 PH₃ 深度對比
+          </div>
+          <div style="font-size:0.82rem; line-height:1.6;">
+            • <b>NH₃(aq)</b>：<span class="cloze">氨水 (氫氧化銨 NH₄OH)</span><br>
+            • <b>水解反應</b>：<br>
+            <div class="chem-eq-hero" style="font-size:0.82rem;">
+              NH₃ ＋ H₂O ⇌ NH₄⁺ ＋ OH⁻
+            </div>
+            • <b>PH₃ (膦) 對比</b>：<br>
+            <div style="padding:4px 6px; background:rgba(0,0,0,0.2); border-radius:4px; font-size:0.78rem;">
+              磷的電負度較小、孤對電子在較大 3p 軌域，不易抓 H⁺。因此：<br>
+              <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">鹼性：NH₃ ≫ PH₃</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mnemonic-box">
+          <span style="font-size:0.78rem; opacity:0.85;">★ 展氏金鑰：</span>
+          <div style="font-size:0.82rem; font-weight:bold; color:var(--chalk-yellow); text-align:center; margin-top:2px;">
+            「幾元鹼」看其每莫耳能提供或結合幾莫耳 H⁺！
+          </div>
+        </div>
+      </div>
+
+      <!-- 第 4 欄：共軛鹼與多元鹼水解 -->
+      <div class="col-card">
+        <div class="col-title">
+          <span>四、共軛鹼與多元水解</span>
+          <span style="font-size:0.75rem; opacity:0.8;">碳酸根兩步水解</span>
+        </div>
+
+        <!-- 各種共軛鹼元數 -->
+        <div class="section-box">
+          <div class="sub-head">1. 共軛鹼的元數定義</div>
+          <div style="font-size:0.81rem; line-height:1.55;">
+            • <b>CH₃COO⁻</b>：<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元鹼</span><br>
+            <span style="font-size:0.76rem; color:var(--text-sub);">
+              CH₃COO⁻ ＋ H₂O ⇌ CH₃COOH ＋ OH⁻
+            </span><br>
+            • <b>HCO₃⁻</b>：<span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">一元鹼 (兩性物種)</span><br>
+            <span style="font-size:0.76rem; color:var(--text-sub);">
+              HCO₃⁻ ＋ H₂O ⇌ H₂CO₃ ＋ OH⁻
+            </span>
+          </div>
+        </div>
+
+        <!-- 焦點大打勾：CO3 2- 二元鹼之水解階梯 -->
+        <div class="reaction-box" style="border-left: 3px solid var(--chalk-green);">
+          <div class="sub-head" style="color:var(--chalk-green); margin-bottom:2px;">
+            ✓ 核心考點：CO₃²⁻（二元鹼）
+          </div>
+          <div style="font-size:0.81rem; color:var(--text-sub); margin-bottom:4px;">
+            每 1 個 CO₃²⁻ 總共能結合 2 個 H⁺，水解分兩步進行：
+          </div>
+
+          <div style="font-size:0.78rem; line-height:1.6;">
+            <b>第一步水解 (Kb₁)：</b>
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-yellow);">
+              CO₃²⁻ ＋ H₂O ⇌ HCO₃⁻ ＋ OH⁻
+            </div>
+            <b>第二步水解 (Kb₂)：</b>
+            <div class="chem-eq-hero" style="font-size:0.78rem; color:var(--chalk-cyan);">
+              HCO₃⁻ ＋ H₂O ⇌ H₂CO₃ ＋ OH⁻
+            </div>
+          </div>
+        </div>
+
+        <div class="section-box" style="border-left-color: var(--chalk-red); font-size:0.8rem;">
+          <b>重要觀念提醒</b>：<br>
+          水解常數 <span class="cloze" style="font-weight:bold; color:var(--chalk-red);">Kb₁ ≫ Kb₂</span>，第二步水解產生的 OH⁻ 遠少於第一步！
+        </div>
+
+        <div class="note-pill" style="display:block; text-align:center;">
+          🎯 結論：多元酸對應多元共軛鹼，步步可逆！
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= 展氏新解：延伸思維獨立區塊 ================= -->
+    <div class="extension-container">
+      <div class="extension-header">
+        <div class="extension-title">
+          <span>🧠 【展氏新解】延伸思維：從「命名規則」跨入「微觀鍵能與電負度誘導效應」</span>
+        </div>
+        <span class="extension-badge">氧化數本質 · 鍵極性誘導 · 多步水解平衡常數推導</span>
+      </div>
+
+      <div class="extension-grid">
+        <!-- 區塊 A：含氧酸氧化態與酸性強弱之微觀成因 -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.92rem;">
+            📌 A. 為什麼「氧化態愈高，含氧酸酸性愈強」？
+          </div>
+          <p style="font-size:0.83rem; color:var(--text-sub); text-wrap:pretty;">
+            觀察 HClO₄ > HClO₃ > HClO₂ > HClO 的酸性變化，微觀物理機制在於<b>中心原子的電負度與非羥基氧（=O）的數目</b>：
+          </p>
+          <ul style="font-size:0.82rem; line-height:1.6;">
+            <li>中心原子 Cl 鍵結越多的高電負度氧原子（=O），將電子雲強烈往中心拉扯（強烈<b>誘導拉電子效應</b>）。</li>
+            <li>結果使得 O-H 鍵極性大幅增加，H 原子的正電性增強，極易脫落成 H⁺。</li>
+            <li>解離後生成的陰離子（如 ClO₄⁻）具有 4 個共振結構，負電荷高度分散，極度穩定！</li>
+          </ul>
+        </div>
+
+        <!-- 區塊 B：磷酸、亞磷酸、次磷酸的熱力學與鹽類命名 -->
+        <div class="ext-box">
+          <div style="font-weight:800; color:var(--chalk-orange); font-size:0.92rem;">
+            📌 B. 磷酸家族之鹽類「正鹽 vs 酸式鹽」命題地雷
+          </div>
+          <p style="font-size:0.83rem; color:var(--text-sub);">
+            大考化學極愛用「化學式看似有 H，卻不是酸式鹽」來誘殺考生：
+          </p>
+          <table style="width:100%; border-collapse:collapse; font-size:0.79rem; margin-top:4px;">
+            <tr style="border-bottom:1px solid var(--card-border); color:var(--chalk-cyan);">
+              <th style="padding:4px; text-align:left;">母酸</th>
+              <th style="padding:4px; text-align:left;">代表鹽類</th>
+              <th style="padding:4px; text-align:center;">鹽類性質</th>
+              <th style="padding:4px; text-align:left;">原因解析</th>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:4px;"><b>H₃PO₄</b> (三元)</td>
+              <td style="padding:4px;">NaH₂PO₄</td>
+              <td style="padding:4px; text-align:center; color:var(--chalk-yellow);">酸式鹽</td>
+              <td style="padding:4px;">仍有 2 個可解離之 -OH</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--card-border);">
+              <td style="padding:4px;"><b>H₃PO₃</b> (二元)</td>
+              <td style="padding:4px;">Na₂HPO₃</td>
+              <td style="padding:4px; text-align:center; color:var(--chalk-green); font-weight:bold;">正鹽 (非酸式鹽)</td>
+              <td style="padding:4px;">僅存之 H 為 P-H，不可解離！</td>
+            </tr>
+            <tr>
+              <td style="padding:4px;"><b>H₃PO₂</b> (一元)</td>
+              <td style="padding:4px;">NaH₂PO₂</td>
+              <td style="padding:4px; text-align:center; color:var(--chalk-green); font-weight:bold;">正鹽 (非酸式鹽)</td>
+              <td style="padding:4px;">2 個 H 皆為 P-H，無可游離之 H！</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 頁尾版權與計數器 -->
+    <div class="footer">
+      <div>展氏新解 · 酸鹼命名、元數與結構本質：從非含氧酸到多元共軛鹼</div>
+      <div class="footer-copyright">© 展氏新解 版權所有</div>
+      <div style="font-size:0.78rem; opacity:0.85; margin-top:4px; display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.06); padding:2px 10px; border-radius:12px; border:1px solid var(--card-border);">
+        <span>👀 累計點閱：</span>
+        <span id="pageViews" style="color:var(--chalk-yellow); font-weight:bold;">載入中...</span>
+        <span>次</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 獨立隨堂測驗視窗 (Modal) -->
+  <div id="quizModal" class="quiz-modal">
+    <div class="quiz-card-container">
+      <div class="quiz-header">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="brand-tag">展氏新解</span>
+          <h2 style="font-size:1.15rem; font-weight:900;">隨堂即時檢測系統</h2>
+        </div>
+        <button class="btn" style="background:#dc2626; color:#fff; border:none;" onclick="closeQuiz()">✕ 關閉返回講義</button>
+      </div>
+
+      <div class="quiz-stats-bar">
+        <span>已作答：<b id="answeredCount">0</b> / <span id="totalCount">3</span> 題</span>
+        <span>答對率：<b id="accuracyRate" style="color:var(--chalk-yellow);">0%</b></span>
+        <button class="btn" style="padding:2px 8px; font-size:0.75rem;" onclick="resetQuiz()">🔄 全部重置</button>
+      </div>
+
+      <div id="quizList" style="display:flex; flex-direction:column; gap:12px;"></div>
+    </div>
+  </div>
+
+  <script>
+    const QUESTION_BANK = [
+      {
+        id: 1,
+        level: "觀念基礎 · 氣體與水溶液命名差異",
+        question: "化學式同為 HCl，下列關於命名與酸鹼特性的敘述何者正確？",
+        options: [
+          "A. 無論是氣體或是水溶液，其標準中文名稱皆一律稱為鹽酸",
+          "B. HCl(g) 純物質稱為氯化氫；HCl(aq) 水溶液稱為氫氯酸 (俗稱鹽酸)",
+          "C. HCl 溶於水時會完全解離，因此 HCl(g) 氣體本身也能讓乾燥石蕊試紙變紅",
+          "D. HCl 是三元酸，因為它含有氫原子"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>1. 非含氧酸命名具雙軌制：純氣態稱「某化氫」，溶於水呈酸性溶液稱「氫某酸」。<br>2. HCl(g) 氯化氫純氣體為分子化合物，不含游離之 H⁺，無法讓乾燥石蕊試紙變色；溶於水形成 HCl(aq) 氫氯酸（鹽酸）後方表現強酸性。"
+      },
+      {
+        id: 2,
+        level: "核心考點 · 磷酸家族之元數與鹽類判斷",
+        question: "亞磷酸 (H₃PO₃) 與次磷酸 (H₃PO₂) 是大考常考的結構陷阱題，下列敘述何者完全正確？",
+        options: [
+          "A. 因為分子式中皆含有 3 個氫原子，所以 H₃PO₄、H₃PO₃、H₃PO₂ 皆為三元酸",
+          "B. H₃PO₃ 中有 1 個氫直接與磷相連 (P-H)，故在水中只能解離出 2 個 H⁺，為二元酸",
+          "C. NaH₂PO₂ 含有 2 個氫，所以溶於水為酸式鹽且水溶液必呈強酸性",
+          "D. H₃PO₂ 與足量 NaOH 反應，1 莫耳次磷酸可消耗 3 莫耳 NaOH"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>1. 含氧酸中只有連在電負度大的氧原子上的氫 (-OH) 才能解離為 H⁺。<br>2. H₃PO₃ 有兩個 -OH 與一個 P-H，故為二元酸；H₃PO₂ 只有一個 -OH 與兩個 P-H，故為一元酸。<br>3. 因此 NaH₂PO₂ 已將唯一的酸性氫中和完畢，屬於「正鹽」，而非酸式鹽！"
+      },
+      {
+        id: 3,
+        level: "進階推導 · 共軛鹼之多步水解",
+        question: "碳酸鈉 (Na₂CO₃) 溶於水中會呈鹼性，其主因來自碳酸根 (CO₃²⁻) 的水解，下列敘述何者正確？",
+        options: [
+          "A. CO₃²⁻ 為一元鹼，只能與水反應產生 1 個 OH⁻",
+          "B. CO₃²⁻ 為二元鹼，其在水溶液中主要的水解反應為 CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻",
+          "C. 第二步水解反應為 CO₃²⁻ + 2H₂O ⇌ H₂CO₃ + 2OH⁻，且反應趨勢比第一步更大",
+          "D. CO₃²⁻ 的鹼性比 OH⁻ 強，所以在水中完全水解"
+        ],
+        answer: 1,
+        explanation: "【展氏新解解析】：<br>1. CO₃²⁻ 能結合 2 個質子（先變 HCO₃⁻，再變 H₂CO₃），因此屬於「二元鹼」。<br>2. 多步水解反應中，第一步水解常數 Kb₁ 遠大於第二步 Kb₂（Kb₁ ≫ Kb₂），溶液中之 OH⁻ 主要來自第一步水解 (CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻)。"
+      }
+    ];
+
+    window.updateQuestionBank = function(newBank) {
+      if (Array.isArray(newBank)) {
+        QUESTION_BANK.length = 0;
+        QUESTION_BANK.push(...newBank);
+        renderQuiz();
+        console.log("✅ 題庫已由後台更新完成！共載入 " + newBank.length + " 題。");
+      }
+    };
+
+    const userAnswers = {};
+
+    function renderQuiz() {
+      const container = document.getElementById('quizList');
+      container.innerHTML = '';
+      document.getElementById('totalCount').innerText = QUESTION_BANK.length;
+
+      QUESTION_BANK.forEach((q, idx) => {
+        const qCard = document.createElement('div');
+        qCard.className = 'question-block';
+        qCard.id = `qCard_${q.id}`;
+
+        let optsHtml = q.options.map((opt, optIdx) => `
+          <button class="opt-btn" id="btn_${q.id}_${optIdx}" onclick="selectAnswer(${q.id}, ${optIdx}, ${q.answer})">
+            ${opt}
+          </button>
+        `).join('');
+
+        qCard.innerHTML = `
+          <div class="q-title-row">
+            <span class="q-badge">${q.level}</span>
+            <span>第 ${idx + 1} 題：${q.question}</span>
+          </div>
+          <div class="option-list">
+            ${optsHtml}
+          </div>
+          <div class="expl-box" id="expl_${q.id}">
+            ${q.explanation}
+          </div>
+        `;
+        container.appendChild(qCard);
+      });
+      updateStats();
+    }
+
+    function selectAnswer(qid, selectedIdx, correctIdx) {
+      if (userAnswers[qid] !== undefined) return;
+
+      userAnswers[qid] = selectedIdx;
+      const q = QUESTION_BANK.find(item => item.id === qid);
+
+      q.options.forEach((_, optIdx) => {
+        const btn = document.getElementById(`btn_${qid}_${optIdx}`);
+        btn.disabled = true;
+        if (optIdx === correctIdx) {
+          btn.classList.add('correct');
+          btn.innerHTML += ' ✓ (正確答案)';
+        }
+      });
+
+      if (selectedIdx !== correctIdx) {
+        const wrongBtn = document.getElementById(`btn_${qid}_${selectedIdx}`);
+        wrongBtn.classList.add('wrong');
+        wrongBtn.innerHTML += ' ✕ (您的選擇)';
+      }
+
+      document.getElementById(`expl_${qid}`).classList.add('show');
+      updateStats();
+    }
+
+    function updateStats() {
+      const answered = Object.keys(userAnswers).length;
+      document.getElementById('answeredCount').innerText = answered;
+
+      let correctCount = 0;
+      Object.keys(userAnswers).forEach(qid => {
+        const q = QUESTION_BANK.find(item => item.id == qid);
+        if (q && userAnswers[qid] === q.answer) {
+          correctCount++;
+        }
+      });
+
+      const rate = answered === 0 ? 0 : Math.round((correctCount / answered) * 100);
+      document.getElementById('accuracyRate').innerText = `${rate}% (${correctCount}/${answered})`;
+    }
+
+    function resetQuiz() {
+      Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
+      renderQuiz();
+    }
+
+    function openQuiz() {
+      document.getElementById('quizModal').classList.add('active');
+      renderQuiz();
+    }
+
+    function closeQuiz() {
+      document.getElementById('quizModal').classList.remove('active');
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('theme-paper');
+    }
+
+    function toggleCloze() {
+      document.body.classList.toggle('cloze-mode');
+      document.querySelectorAll('.cloze').forEach(el => {
+        el.classList.remove('revealed');
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (document.body.classList.contains('cloze-mode') && e.target.classList.contains('cloze')) {
+        e.target.classList.toggle('revealed');
+      }
+    });
+
+    renderQuiz();
+
+    // 點閱計數器
+    (function recordPageView() {
+      const counterEl = document.getElementById("pageViews");
+      const timestamp = new Date().getTime();
+      const pageKey = "y-chinchan-acid-base-naming-structure-v1";
+      const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
+
+      fetch(apiUrl)
+        .then(res => {
+          if (!res.ok) throw new Error("API 狀態碼異常");
+          return res.json();
+        })
+        .then(data => {
+          if (data && typeof data.count !== "undefined") {
+            counterEl.innerText = Number(data.count).toLocaleString();
+          } else {
+            updateLocalFallback();
+          }
+        })
+        .catch(err => {
+          console.warn("線上計數異常，切換至本地增量：", err);
+          updateLocalFallback();
+        });
+
+      function updateLocalFallback() {
+        let count = parseInt(localStorage.getItem("local_pv_" + pageKey) || "0", 10);
+        count += 1;
+        localStorage.setItem("local_pv_" + pageKey, count);
+        counterEl.innerText = count.toLocaleString();
+      }
+    })();
+  </script>
+</body>
+</html>
