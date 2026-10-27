@@ -443,26 +443,42 @@
       margin-bottom: 4px;
     }
 
-    /* 課堂挖空功能 */
-    .cloze { transition: all 0.2s; }
+    /* 挖空基本樣式與單一顯現樣式 */
+    .cloze {
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: default;
+    }
+
     body.cloze-mode .cloze {
       background: #334155 !important;
       color: transparent !important;
       border-radius: 4px;
-      padding: 0 4px;
-      cursor: pointer;
+      padding: 1px 6px;
+      margin: 0 1px;
+      cursor: pointer !important;
       user-select: none;
-      border: 1px dashed var(--chalk-yellow);
+      border: 1px dashed var(--chalk-yellow) !important;
       display: inline-block;
+      vertical-align: baseline;
+      min-width: 1.5em;
     }
+
     body.cloze-mode.theme-paper .cloze {
       background: #cbd5e1 !important;
-      border: 1px dashed #475569;
+      border: 1px dashed #475569 !important;
     }
+
     body.cloze-mode .cloze.revealed {
       background: var(--highlight-bg) !important;
-      color: var(--text-main) !important;
-      border: 1px solid var(--chalk-green);
+      color: inherit !important;
+      border: 1px solid var(--chalk-green) !important;
+      cursor: pointer !important;
+      animation: popReveal 0.2s ease-out;
+    }
+
+    @keyframes popReveal {
+      0% { transform: scale(0.96); }
+      100% { transform: scale(1); }
     }
 
     /* 測驗 Modal 視窗 */
@@ -758,33 +774,190 @@
         </div>
       </div>
 
-      <!-- 第 2 欄：含氧酸與多氧化態（重點：磷酸家族） -->
+      <!-- 第 2 欄：含氧酸與多氧化態（含 2x2 結構、階梯表格與磷酸家族） -->
       <div class="col-card">
         <div class="col-title">
           <span>二、含氧酸與多氧化態</span>
-          <span style="font-size:0.75rem; opacity:0.8;">磷酸家族結構陷阱</span>
+          <span style="font-size:0.75rem; opacity:0.8;">多氧化態階梯矩陣</span>
         </div>
 
+        <!-- 1. 常見含氧酸與元數（含 2x2 板書路易士結構，HNO3 已嚴格修正為 O=N(-O)-OH） -->
         <div class="section-box">
           <div class="sub-head">1. 常見含氧酸與元數</div>
-          <div style="font-size:0.82rem; line-height:1.6;">
+          <div style="font-size:0.82rem; line-height:1.6; margin-bottom: 6px;">
             • <b>H₂CO₃</b>：<span class="cloze">碳酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">二元酸</span>）<br>
             • <b>HNO₃</b>：<span class="cloze">硝酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span>）<br>
             • <b>H₂SO₄</b>：<span class="cloze">硫酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">二元酸</span>）<br>
             • <b>H₃PO₄</b>：<span class="cloze">磷酸</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">三元酸</span>）
           </div>
+
+          <!-- 2x2 路易士結構圖解容器 -->
+          <div class="diagram-wrap" style="padding: 6px 2px; background: rgba(0,0,0,0.32);">
+            <div style="font-size: 0.78rem; font-weight: 800; color: var(--chalk-cyan); margin-bottom: 4px; text-align: center;">
+              【結構特徵】含氧酸的 H 皆連在 O 上形成 -OH
+            </div>
+            
+            <svg viewBox="0 0 280 230" style="width: 100%; max-width: 320px; margin: 0 auto; display: block;">
+              <defs>
+                <style>
+                  .atom-c { font-size: 11px; font-weight: 900; fill: #f1f5f9; text-anchor: middle; dominant-baseline: central; }
+                  .atom-o { font-size: 11px; font-weight: 900; fill: #67e8f9; text-anchor: middle; dominant-baseline: central; }
+                  .atom-h { font-size: 11.5px; font-weight: 900; fill: #fdba74; text-anchor: middle; dominant-baseline: central; } /* H 用醒目粉橘色標示 */
+                  .bond { stroke: #cbd5e1; stroke-width: 1.6; stroke-linecap: round; }
+                  .bond-double { stroke: #cbd5e1; stroke-width: 1.4; stroke-linecap: round; }
+                  .struct-tag { font-size: 9px; font-weight: 800; fill: var(--chalk-yellow); text-anchor: middle; }
+                  .grid-div { stroke: rgba(255,255,255,0.15); stroke-dasharray: 3,3; stroke-width: 1; }
+                </style>
+              </defs>
+
+              <line x1="140" y1="10" x2="140" y2="220" class="grid-div" />
+              <line x1="10" y1="115" x2="270" y2="115" class="grid-div" />
+
+              <!-- (左上) H2CO3 碳酸 -->
+              <g transform="translate(0, 0)">
+                <text x="70" y="16" class="struct-tag">H₂CO₃ 碳酸 (二元)</text>
+                <text x="70" y="60" class="atom-c">C</text>
+                <line x1="68" y1="52" x2="68" y2="38" class="bond-double" />
+                <line x1="72" y1="52" x2="72" y2="38" class="bond-double" />
+                <text x="70" y="32" class="atom-o">O</text>
+                <line x1="62" y1="65" x2="48" y2="75" class="bond" />
+                <text x="42" y="78" class="atom-o">O</text>
+                <line x1="36" y1="78" x2="25" y2="78" class="bond" />
+                <text x="18" y="78" class="atom-h">H</text>
+                <line x1="78" y1="65" x2="92" y2="75" class="bond" />
+                <text x="98" y="78" class="atom-o">O</text>
+                <line x1="104" y1="78" x2="115" y2="78" class="bond" />
+                <text x="122" y="78" class="atom-h">H</text>
+              </g>
+
+              <!-- (右上) HNO3 硝酸 (O=N(-O)-OH 單鍵配位修正) -->
+              <g transform="translate(140, 0)">
+                <text x="70" y="16" class="struct-tag">HNO₃ 硝酸 (一元)</text>
+                <text x="70" y="60" class="atom-c">N</text>
+                <line x1="68" y1="52" x2="68" y2="38" class="bond-double" />
+                <line x1="72" y1="52" x2="72" y2="38" class="bond-double" />
+                <text x="70" y="32" class="atom-o">O</text>
+                <line x1="63" y1="68" x2="48" y2="78" class="bond" />
+                <text x="40" y="84" class="atom-o">O</text>
+                <line x1="78" y1="65" x2="92" y2="75" class="bond" />
+                <text x="98" y="78" class="atom-o">O</text>
+                <line x1="104" y1="78" x2="115" y2="78" class="bond" />
+                <text x="122" y="78" class="atom-h">H</text>
+              </g>
+
+              <!-- (左下) H2SO4 硫酸 -->
+              <g transform="translate(0, 115)">
+                <text x="70" y="16" class="struct-tag">H₂SO₄ 硫酸 (二元)</text>
+                <text x="70" y="60" class="atom-c">S</text>
+                <line x1="68" y1="52" x2="68" y2="38" class="bond-double" />
+                <line x1="72" y1="52" x2="72" y2="38" class="bond-double" />
+                <text x="70" y="32" class="atom-o">O</text>
+                <line x1="68" y1="68" x2="68" y2="82" class="bond-double" />
+                <line x1="72" y1="68" x2="72" y2="82" class="bond-double" />
+                <text x="70" y="88" class="atom-o">O</text>
+                <line x1="62" y1="60" x2="48" y2="60" class="bond" />
+                <text x="42" y="60" class="atom-o">O</text>
+                <line x1="36" y1="60" x2="25" y2="60" class="bond" />
+                <text x="18" y="60" class="atom-h">H</text>
+                <line x1="78" y1="60" x2="92" y2="60" class="bond" />
+                <text x="98" y="60" class="atom-o">O</text>
+                <line x1="104" y1="60" x2="115" y2="60" class="bond" />
+                <text x="122" y="60" class="atom-h">H</text>
+              </g>
+
+              <!-- (右下) H3PO4 磷酸 -->
+              <g transform="translate(140, 115)">
+                <text x="70" y="16" class="struct-tag">H₃PO₄ 磷酸 (三元)</text>
+                <text x="70" y="58" class="atom-c">P</text>
+                <line x1="68" y1="50" x2="68" y2="36" class="bond-double" />
+                <line x1="72" y1="50" x2="72" y2="36" class="bond-double" />
+                <text x="70" y="30" class="atom-o">O</text>
+                <line x1="62" y1="55" x2="48" y2="55" class="bond" />
+                <text x="42" y="55" class="atom-o">O</text>
+                <line x1="36" y1="55" x2="25" y2="55" class="bond" />
+                <text x="18" y="55" class="atom-h">H</text>
+                <line x1="70" y1="65" x2="70" y2="78" class="bond" />
+                <text x="70" y="84" class="atom-o">O</text>
+                <line x1="70" y1="90" x2="70" y2="99" class="bond" />
+                <text x="70" y="105" class="atom-h">H</text>
+                <line x1="78" y1="55" x2="92" y2="55" class="bond" />
+                <text x="98" y="55" class="atom-o">O</text>
+                <line x1="104" y1="55" x2="115" y2="55" class="bond" />
+                <text x="122" y="55" class="atom-h">H</text>
+              </g>
+            </svg>
+
+            <div style="font-size: 0.76rem; color: var(--text-sub); margin-top: 3px; text-align: center;">
+              橘色 <b style="color:var(--chalk-orange);">H</b> 皆鍵結於 <b style="color:var(--chalk-cyan);">O</b> 上，故可解離出 H⁺（決定酸之元數）！
+            </div>
+          </div>
         </div>
 
-        <!-- 多氧化態命名階梯 -->
-        <div class="section-box" style="border-left-color: var(--chalk-orange);">
-          <div class="sub-head" style="color:var(--chalk-orange);">2. 多氧化態命名序列</div>
-          <div class="chem-eq-hero" style="font-size:0.85rem; color:var(--chalk-cyan);">
-            過酸 &gt; 正酸 &gt; 亞酸 &gt; 次酸
+        <!-- 2. 板書 100% 擬真：多氧化態矩陣表格（過酸 / 正酸 / 亞酸 / 次酸） -->
+        <div class="section-box" style="border-left-color: var(--chalk-orange); padding: 8px 6px;">
+          <div class="sub-head" style="color:var(--chalk-orange); margin-bottom: 5px;">
+            2. 多氧化態含氧酸對齊矩陣
           </div>
-          <div style="font-size:0.79rem; line-height:1.5;">
-            • <b>氯系列</b>：<span class="cloze">HClO₄ (過氯酸) &gt; HClO₃ (氯酸) &gt; HClO₂ (亞氯酸) &gt; HClO (次氯酸)</span><br>
-            • <b>錳系列</b>：<span class="cloze">HMnO₄ (過錳酸) &gt; H₂MnO₄ (錳酸)</span><br>
-            • <b>氮與硫</b>：<span class="cloze">HNO₃ (硝酸) &gt; HNO₂ (亞硝酸)</span>；<span class="cloze">H₂SO₄ (硫酸) &gt; H₂SO₃ (亞硫酸)</span>
+
+          <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+            <table class="role-table" style="margin: 0; min-width: 250px; font-size: 0.81rem;">
+              <thead>
+                <tr style="background: rgba(0,0,0,0.35);">
+                  <th style="color:var(--chalk-red); width: 25%; font-weight: 900; border-bottom: 2px solid var(--chalk-red);">過酸</th>
+                  <th style="color:var(--chalk-yellow); width: 25%; font-weight: 900; border-bottom: 2px solid var(--chalk-yellow);">正酸</th>
+                  <th style="color:var(--chalk-cyan); width: 25%; font-weight: 900; border-bottom: 2px solid var(--chalk-cyan);">亞酸</th>
+                  <th style="color:var(--chalk-green); width: 25%; font-weight: 900; border-bottom: 2px solid var(--chalk-green);">次酸</th>
+                </tr>
+              </thead>
+              <tbody style="line-height: 1.55; text-align: center;">
+                <!-- 碳系列 -->
+                <tr>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">H₂CO₃</span></td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                </tr>
+                <!-- 氮系列 -->
+                <tr>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">HNO₃</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-cyan);">HNO₂</span></td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                </tr>
+                <!-- 硫系列 -->
+                <tr>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">H₂SO₄</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-cyan);">H₂SO₃</span></td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                </tr>
+                <!-- 磷系列 -->
+                <tr style="background: rgba(253, 224, 71, 0.08);">
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">H₃PO₄</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-cyan);">H₃PO₃</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-green);">H₃PO₂</span></td>
+                </tr>
+                <!-- 氯系列 (四階齊全) -->
+                <tr>
+                  <td><span class="cloze" style="color: var(--chalk-red); font-weight: bold;">HClO₄</span></td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">HClO₃</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-cyan);">HClO₂</span></td>
+                  <td><span class="cloze" style="color: var(--chalk-green);">HClO</span></td>
+                </tr>
+                <!-- 錳系列 -->
+                <tr>
+                  <td><span class="cloze" style="color: var(--chalk-red); font-weight: bold;">HMnO₄</span></td>
+                  <td><span class="cloze" style="font-weight: bold; color: var(--chalk-yellow);">H₂MnO₄</span></td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                  <td style="color: rgba(255,255,255,0.2);">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="font-size:0.77rem; color:var(--text-sub); margin-top:5px; text-align:center;">
+            👉 <b>命名通則</b>：氧數比正酸多1個為「<b style="color:var(--chalk-red);">過酸</b>」；少1個為「<b style="color:var(--chalk-cyan);">亞酸</b>」；少2個為「<b style="color:var(--chalk-green);">次酸</b>」
           </div>
         </div>
 
@@ -846,39 +1019,70 @@
         </div>
       </div>
 
-      <!-- 第 3 欄：鹼命名與元數特性 -->
+      <!-- 第 3 欄：鹼命名與元數特性（包含 Al(OH)3 解離式與 NH3/PH3 一元鹼深度解析） -->
       <div class="col-card">
         <div class="col-title">
           <span>三、鹼命名與元數特性</span>
           <span style="font-size:0.75rem; opacity:0.8;">氫氧化某與分子鹼</span>
         </div>
 
+        <!-- 1. 金屬氫氧化物 -->
         <div class="section-box">
           <div class="sub-head">1. 金屬氫氧化物命名與元數</div>
           <div style="font-size:0.82rem; line-height:1.65;">
-            • <b>NaOH</b>：<span class="cloze">氫氧化鈉</span>（<span class="cloze" style="color:var(--chalk-green);">一元鹼</span>）<br>
-            • <b>KOH</b>：<span class="cloze">氫氧化鉀</span>（<span class="cloze" style="color:var(--chalk-green);">一元鹼</span>）<br>
-            • <b>Ca(OH)₂</b>：<span class="cloze">氫氧化鈣</span>（<span class="cloze" style="color:var(--chalk-yellow);">二元鹼</span>）<br>
-            • <b>Al(OH)₃</b>：<span class="cloze">氫氧化鋁</span>（<span class="cloze" style="color:var(--chalk-orange);">三元鹼</span>）
+            • <b>NaOH</b>：<span class="cloze">氫氧化鈉</span>（<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span>）<br>
+            • <b>KOH</b>：<span class="cloze">氫氧化鉀</span>（<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span>）<br>
+            • <b>Ca(OH)₂</b>：<span class="cloze">氫氧化鈣</span>（<span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">二元鹼</span>）<br>
+            • <b>Al(OH)₃</b>：<span class="cloze">氫氧化鋁</span>（<span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">三元鹼</span>）
+          </div>
+
+          <!-- 新增：Al(OH)3 產生 3OH- 方程式 -->
+          <div class="chem-eq-hero" style="font-size:0.82rem; margin:6px 0 2px 0; color:var(--chalk-orange);">
+            Al(OH)₃ ⇌ Al³⁺ ＋ 3 OH⁻
+          </div>
+          <div style="font-size:0.76rem; color:var(--text-sub); text-align:center;">
+            👉 每 1 莫耳 Al(OH)₃ 可解離出 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">3 莫耳 OH⁻</span>，故為三元鹼！
           </div>
         </div>
 
-        <!-- 其它弱鹼：氨氣水溶液 vs 膦 (PH3) 對比 -->
+        <!-- 2. 其他分子鹼：氨水與 PH3（皆為一元鹼） -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-cyan);">
           <div class="sub-head" style="color:var(--chalk-cyan); margin-bottom:3px;">
-            2. 其他分子鹼：氨水與 PH₃ 深度對比
+            2. 其他分子鹼：氨水與 PH₃（皆為一元鹼）
           </div>
-          <div style="font-size:0.82rem; line-height:1.6;">
-            • <b>NH₃(aq)</b>：<span class="cloze">氨水 (氫氧化銨 NH₄OH)</span><br>
-            • <b>水解反應</b>：<br>
-            <div class="chem-eq-hero" style="font-size:0.82rem;">
+          <div style="font-size:0.82rem; line-height:1.65;">
+            • <b>NH₃(aq)</b>：<span class="cloze">氨水 (氫氧化銨 NH₄OH)</span> 👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span><br>
+            <div class="chem-eq-hero" style="font-size:0.82rem; margin:2px 0;">
               NH₃ ＋ H₂O ⇌ NH₄⁺ ＋ OH⁻
             </div>
-            • <b>PH₃ (膦) 對比</b>：<br>
-            <div style="padding:4px 6px; background:rgba(0,0,0,0.2); border-radius:4px; font-size:0.78rem;">
-              磷的電負度較小、孤對電子在較大 3p 軌域，不易抓 H⁺。因此：<br>
-              <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">鹼性：NH₃ ≫ PH₃</span>
+            • <b>PH₃(aq)</b>：<span class="cloze">膦 (磷化氫)</span> 👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span><br>
+            <div class="chem-eq-hero" style="font-size:0.82rem; margin:2px 0; color:var(--chalk-orange);">
+              PH₃ ＋ H₂O ⇌ PH₄⁺ ＋ OH⁻
             </div>
+            • <b>強度深度對比</b>：<br>
+            <div style="padding:4px 6px; background:rgba(0,0,0,0.25); border-radius:4px; font-size:0.78rem; line-height:1.5;">
+              兩者中心原子均具 1 對孤對電子，皆只能結合 1 個 H⁺，故<b>皆為一元鹼</b>！<br>
+              但因 P 電負度較小且 3p 軌域較大、分散，抓 H⁺ 能力弱，故鹼性：<br>
+              👉 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">NH₃ ≫ PH₃</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ★ 展氏專屬破題：命名陷阱與書寫歷史剖析 -->
+        <div class="section-box" style="border-left-color: var(--chalk-red); background: rgba(248, 113, 113, 0.12); padding: 8px;">
+          <div style="font-weight: 900; color: var(--chalk-red); font-size: 0.86rem; margin-bottom: 4px;">
+            ⚠️ 展氏警示：NH₃ 與 PH₃ 的「命名大陷阱」
+          </div>
+
+          <div style="font-size: 0.81rem; line-height: 1.6;">
+            • <b>直覺常錯</b>：看化學式由左念到右，誤念成「<span style="color:var(--chalk-red); text-decoration: line-through;">氫化氮</span>」❌<br>
+            • <b>正確名稱</b>：應念作「<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">氮化氫</span>」✅；同理，PH₃ 念作「<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">磷化氫</span>」✅
+          </div>
+
+          <div style="margin-top: 5px; padding: 6px 8px; background: rgba(0,0,0,0.28); border-radius: 5px; font-size: 0.78rem; line-height: 1.55;">
+            <b style="color:var(--chalk-yellow);">💡 為什麼書寫與常見規律相反？</b><br>
+            ① <b>氧化數原則</b>：H 氧化數為 +1（正價先寫），如 <span style="color:var(--chalk-cyan);">H₂O</span>、<span style="color:var(--chalk-cyan);">HF</span>，故理論上應寫作 <span class="cloze" style="font-weight:bold; color:var(--chalk-yellow);">H₃N</span>。<br>
+            ② <b>解離暗示習慣</b>：化學式中「H 寫在最前方常帶有能解離出 H⁺ 的酸性暗示」（如 HCl、H₂SO₄）。為了強調<b>氨與膦中的 H 平常絕不解離釋出</b>，習慣上刻意將 H 挪至後方改寫成 <span class="cloze" style="font-weight:bold; color:var(--chalk-green);">NH₃</span> 與 <span class="cloze" style="font-weight:bold; color:var(--chalk-green);">PH₃</span>！
           </div>
         </div>
 
@@ -897,7 +1101,6 @@
           <span style="font-size:0.75rem; opacity:0.8;">碳酸根兩步水解</span>
         </div>
 
-        <!-- 各種共軛鹼元數 -->
         <div class="section-box">
           <div class="sub-head">1. 共軛鹼的元數定義</div>
           <div style="font-size:0.81rem; line-height:1.55;">
@@ -912,7 +1115,6 @@
           </div>
         </div>
 
-        <!-- 焦點大打勾：CO3 2- 二元鹼之水解階梯 -->
         <div class="reaction-box" style="border-left: 3px solid var(--chalk-green);">
           <div class="sub-head" style="color:var(--chalk-green); margin-bottom:2px;">
             ✓ 核心考點：CO₃²⁻（二元鹼）
@@ -955,22 +1157,22 @@
       </div>
 
       <div class="extension-grid">
-        <!-- 區塊 A：含氧酸氧化態與酸性強弱之微觀成因 -->
+        <!-- 區塊 A：含氧酸氧化態與酸性強弱之微觀成因（已修正為 Cl-O） -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-cyan); font-size:0.92rem;">
             📌 A. 為什麼「氧化態愈高，含氧酸酸性愈強」？
           </div>
           <p style="font-size:0.83rem; color:var(--text-sub); text-wrap:pretty;">
-            觀察 HClO₄ > HClO₃ > HClO₂ > HClO 的酸性變化，微觀物理機制在於<b>中心原子的電負度與非羥基氧（=O）的數目</b>：
+            觀察 HClO₄ > HClO₃ > HClO₂ > HClO 的酸性變化，微觀物理機制在於<b>中心原子的電負度與非羥基氧 (Cl-O) 的數目</b>：
           </p>
           <ul style="font-size:0.82rem; line-height:1.6;">
-            <li>中心原子 Cl 鍵結越多的高電負度氧原子（=O），將電子雲強烈往中心拉扯（強烈<b>誘導拉電子效應</b>）。</li>
+            <li>中心原子 Cl 鍵結越多的高電負度氧原子 <b>(Cl-O)</b>，將電子雲強烈往中心拉扯（強烈<b>誘導拉電子效應</b>）。</li>
             <li>結果使得 O-H 鍵極性大幅增加，H 原子的正電性增強，極易脫落成 H⁺。</li>
             <li>解離後生成的陰離子（如 ClO₄⁻）具有 4 個共振結構，負電荷高度分散，極度穩定！</li>
           </ul>
         </div>
 
-        <!-- 區塊 B：磷酸、亞磷酸、次磷酸的熱力學與鹽類命名 -->
+        <!-- 區塊 B：磷酸家族之鹽類命名地雷 -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-orange); font-size:0.92rem;">
             📌 B. 磷酸家族之鹽類「正鹽 vs 酸式鹽」命題地雷
@@ -1189,15 +1391,20 @@
     }
 
     function toggleCloze() {
-      document.body.classList.toggle('cloze-mode');
+      const isCloze = document.body.classList.toggle('cloze-mode');
       document.querySelectorAll('.cloze').forEach(el => {
         el.classList.remove('revealed');
       });
     }
 
+    // 精確點擊單一挖空區域獨立顯現
     document.addEventListener('click', function(e) {
-      if (document.body.classList.contains('cloze-mode') && e.target.classList.contains('cloze')) {
-        e.target.classList.toggle('revealed');
+      if (!document.body.classList.contains('cloze-mode')) return;
+
+      const clozeTarget = e.target.closest('.cloze');
+      if (clozeTarget) {
+        e.stopPropagation();
+        clozeTarget.classList.toggle('revealed');
       }
     });
 
@@ -1207,7 +1414,7 @@
     (function recordPageView() {
       const counterEl = document.getElementById("pageViews");
       const timestamp = new Date().getTime();
-      const pageKey = "y-chinchan-acid-base-naming-structure-v1";
+      const pageKey = "y-chinchan-acid-base-naming-structure-v2";
       const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
 
       fetch(apiUrl)
