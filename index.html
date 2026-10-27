@@ -1118,10 +1118,20 @@
             </div>
           </div>
 
-          <div style="font-size:0.8rem; margin-top:5px; text-align:center; line-height: 1.6;">
-            • H₃PO₄ (3個-OH) 👉 <span class="cloze" style="font-weight:bold;">三元酸</span><br>
-            • H₃PO₃ (2個-OH, 1個P-H) 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元酸</span><br>
-            • H₃PO₂ (1個-OH, 2個P-H) 👉 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">一元酸</span>
+          <!-- 條列整理：左右兩端結構化對齊，手指與元數永不折行斷開 -->
+          <div style="font-size: 0.81rem; margin-top: 6px; display: flex; flex-direction: column; gap: 4px; padding: 2px 4px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+              <span>• H₃PO₄ <span style="font-size:0.75rem; color:var(--text-sub);">(3個 -OH)</span></span>
+              <span style="white-space: nowrap; font-weight: bold;">👉 <span class="cloze" style="color:var(--chalk-cyan);">三元酸</span></span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+              <span>• H₃PO₃ <span style="font-size:0.75rem; color:var(--text-sub);">(2個 -OH, 1個 P-H)</span></span>
+              <span style="white-space: nowrap; font-weight: bold;">👉 <span class="cloze" style="color:var(--chalk-orange);">二元酸</span></span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+              <span>• H₃PO₂ <span style="font-size:0.75rem; color:var(--text-sub);">(1個 -OH, 2個 P-H)</span></span>
+              <span style="white-space: nowrap; font-weight: bold;">👉 <span class="cloze" style="color:var(--chalk-red);">一元酸</span></span>
+            </div>
           </div>
 
           <!-- 展氏引導（示性式改寫破解迷思） -->
@@ -1186,14 +1196,14 @@
           </div>
         </div>
 
-        <!-- ★ 展氏專屬破題：命名陷阱與書寫歷史剖析 -->
+        <!-- ★ 展氏專屬破題：命名陷阱與書寫歷史剖析（修正為：由右念到左） -->
         <div class="section-box" style="border-left-color: var(--chalk-red); background: rgba(248, 113, 113, 0.12); padding: 8px;">
           <div style="font-weight: 900; color: var(--chalk-red); font-size: 0.86rem; margin-bottom: 4px;">
             ⚠️ 展氏警示：NH₃ 與 PH₃ 的「命名大陷阱」
           </div>
 
           <div style="font-size: 0.81rem; line-height: 1.6;">
-            • <b>直覺常錯</b>：看化學式由左念到右，誤念成「<span style="color:var(--chalk-red); text-decoration: line-through;">氫化氮</span>」❌<br>
+            • <b>直覺常錯</b>：依中文命名習慣<b>由右念到左</b>，誤念成「<span style="color:var(--chalk-red); text-decoration: line-through;">氫化氮</span>」❌<br>
             • <b>正確名稱</b>：應念作「<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">氮化氫</span>」✅；同理，PH₃ 念作「<span class="cloze" style="color:var(--chalk-green); font-weight:bold;">磷化氫</span>」✅
           </div>
 
@@ -1355,7 +1365,7 @@
           </ul>
         </div>
 
-        <!-- ★ 區塊 B (由原 E 改為 B)：非典型酸鹼之元數破題心法 -->
+        <!-- 區塊 B (原 E 調整為 B)：非典型酸鹼之元數破題心法 -->
         <div class="ext-box">
           <div style="font-weight:800; color:var(--chalk-orange); font-size:0.92rem;">
             📌 B. 【競賽與大考必備】：非典型酸鹼之「元數破題心法」
@@ -1421,76 +1431,121 @@
         </div>
       </div>
 
-      <!-- 區塊 D：多元弱酸之共軛物種「幾元酸 vs 幾元鹼譜系表」 -->
+      <!-- 區塊 D：多元弱酸之共軛物種「幾元酸 vs 幾元鹼譜系表」（結構化換行對齊防截斷） -->
       <div class="ext-box" style="margin-top:2px;">
         <div style="font-weight:800; color:var(--chalk-green); font-size:0.92rem;">
           📌 D. 【高手進階】：多元酸之共軛物種「幾元酸 vs 幾元鹼」全能剖析表
         </div>
-        <p style="font-size:0.83rem; color:var(--text-sub);">
+        <p style="font-size:0.82rem; color:var(--text-sub);">
           多元弱酸逐步解離出的中間陰離子具有「兩性特性（既能丟 H⁺ 當酸，又能抓 H⁺ 當鹼）」：
         </p>
 
-        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top:4px;">
-          <table class="role-table" style="min-width: 500px; font-size: 0.8rem; margin: 0;">
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top:4px; scrollbar-width: none;">
+          <table class="role-table" style="min-width: 460px; font-size: 0.76rem; margin: 0;">
             <thead>
               <tr style="background: rgba(0,0,0,0.35); color: var(--chalk-yellow);">
-                <th>母酸 (幾元酸)</th>
-                <th>共軛物種</th>
-                <th>扮演「酸」的身分 (釋質子)</th>
-                <th>扮演「鹼」的身分 (受質子)</th>
-                <th>物種總結歸納</th>
+                <th style="width: 18%; padding: 4px 2px;">母酸</th>
+                <th style="width: 16%; padding: 4px 2px;">共軛物種</th>
+                <th style="width: 25%; padding: 4px 3px;">扮演「酸」身分<br><span style="font-size:0.7rem; font-weight:normal; opacity:0.8;">(釋出質子)</span></th>
+                <th style="width: 25%; padding: 4px 3px;">扮演「鹼」身分<br><span style="font-size:0.7rem; font-weight:normal; opacity:0.8;">(接受質子)</span></th>
+                <th style="width: 16%; padding: 4px 2px;">物種歸納</th>
               </tr>
             </thead>
-            <tbody style="line-height: 1.55;">
+            <tbody style="line-height: 1.45; text-align: center;">
               <!-- 草酸系列 -->
               <tr>
-                <td rowspan="2" style="vertical-align: middle; font-weight:bold;">H₂C₂O₄<br><span style="font-size:0.75rem; color:var(--chalk-orange);">(二元酸)</span></td>
-                <td><b style="color:var(--chalk-cyan);">HC₂O₄⁻</b></td>
-                <td>可丟 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-yellow);">一元酸</span></td>
-                <td>可接 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-green);">一元鹼</span></td>
-                <td><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">兩性物種</span></td>
+                <td rowspan="2" style="vertical-align: middle; font-weight:bold;">
+                  H₂C₂O₄<br><span style="font-size:0.7rem; color:var(--chalk-orange);">(二元酸)</span>
+                </td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">HC₂O₄⁻</b></td>
+                <td style="padding: 5px 2px;">
+                  <div>可丟 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span></div>
+                </td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle;"><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold; white-space:nowrap;">兩性物種</span></td>
               </tr>
               <tr>
-                <td><b style="color:var(--chalk-cyan);">C₂O₄²⁻</b></td>
-                <td style="color:rgba(255,255,255,0.3);">無 H⁺ 可釋放 (非酸)</td>
-                <td>可接 2 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></td>
-                <td>多元鹼 (正鹽陰離子)</td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">C₂O₄²⁻</b></td>
+                <td style="vertical-align: middle; color:rgba(255,255,255,0.35);">無 H⁺ 可釋放<br><span style="font-size:0.7rem;">(非酸)</span></td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 2 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle; white-space:nowrap;">多元鹼</td>
               </tr>
 
               <!-- 亞硫酸系列 -->
-              <tr style="background: rgba(255,255,255,0.03);">
-                <td rowspan="2" style="vertical-align: middle; font-weight:bold;">H₂SO₃<br><span style="font-size:0.75rem; color:var(--chalk-orange);">(二元酸)</span></td>
-                <td><b style="color:var(--chalk-cyan);">HSO₃⁻</b></td>
-                <td>可丟 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-yellow);">一元酸</span></td>
-                <td>可接 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-green);">一元鹼</span></td>
-                <td><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">兩性物種</span></td>
+              <tr style="background: rgba(255, 255, 255, 0.03);">
+                <td rowspan="2" style="vertical-align: middle; font-weight:bold;">
+                  H₂SO₃<br><span style="font-size:0.7rem; color:var(--chalk-orange);">(二元酸)</span>
+                </td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">HSO₃⁻</b></td>
+                <td style="padding: 5px 2px;">
+                  <div>可丟 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span></div>
+                </td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle;"><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold; white-space:nowrap;">兩性物種</span></td>
               </tr>
-              <tr style="background: rgba(255,255,255,0.03);">
-                <td><b style="color:var(--chalk-cyan);">SO₃²⁻</b></td>
-                <td style="color:rgba(255,255,255,0.3);">無 H⁺ 可釋放 (非酸)</td>
-                <td>可接 2 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></td>
-                <td>多元鹼 (正鹽陰離子)</td>
+              <tr style="background: rgba(255, 255, 255, 0.03);">
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">SO₃²⁻</b></td>
+                <td style="vertical-align: middle; color:rgba(255,255,255,0.35);">無 H⁺ 可釋放<br><span style="font-size:0.7rem;">(非酸)</span></td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 2 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle; white-space:nowrap;">多元鹼</td>
               </tr>
 
               <!-- 磷酸系列 -->
               <tr>
-                <td rowspan="3" style="vertical-align: middle; font-weight:bold;">H₃PO₄<br><span style="font-size:0.75rem; color:var(--chalk-red);">(三元酸)</span></td>
-                <td><b style="color:var(--chalk-cyan);">H₂PO₄⁻</b></td>
-                <td>可丟 2 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元酸</span></td>
-                <td>可接 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span></td>
-                <td><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">兩性物種</span> (酸性主導)</td>
+                <td rowspan="3" style="vertical-align: middle; font-weight:bold;">
+                  H₃PO₄<br><span style="font-size:0.7rem; color:var(--chalk-red);">(三元酸)</span>
+                </td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">H₂PO₄⁻</b></td>
+                <td style="padding: 5px 2px;">
+                  <div>可丟 2 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元酸</span></div>
+                </td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-green); font-weight:bold;">一元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle;">
+                  <span class="cloze" style="color:var(--chalk-cyan); font-weight:bold; white-space:nowrap;">兩性物種</span><br>
+                  <span style="font-size:0.68rem; color:var(--chalk-yellow); white-space:nowrap;">(酸性主導)</span>
+                </td>
               </tr>
               <tr>
-                <td><b style="color:var(--chalk-cyan);">HPO₄²⁻</b></td>
-                <td>可丟 1 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span></td>
-                <td>可接 2 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></td>
-                <td><span class="cloze" style="color:var(--chalk-cyan); font-weight:bold;">兩性物種</span> (鹼性主導)</td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">HPO₄²⁻</b></td>
+                <td style="padding: 5px 2px;">
+                  <div>可丟 1 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-yellow); font-weight:bold;">一元酸</span></div>
+                </td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 2 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-orange); font-weight:bold;">二元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle;">
+                  <span class="cloze" style="color:var(--chalk-cyan); font-weight:bold; white-space:nowrap;">兩性物種</span><br>
+                  <span style="font-size:0.68rem; color:var(--chalk-green); white-space:nowrap;">(鹼性主導)</span>
+                </td>
               </tr>
               <tr>
-                <td><b style="color:var(--chalk-cyan);">PO₄³⁻</b></td>
-                <td style="color:rgba(255,255,255,0.3);">無 H⁺ 可釋放 (非酸)</td>
-                <td>可接 3 個 H⁺ 👉 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">三元鹼</span></td>
-                <td>多元鹼 (最多抓 3 個 H⁺)</td>
+                <td style="vertical-align: middle;"><b style="color:var(--chalk-cyan); font-size:0.82rem;">PO₄³⁻</b></td>
+                <td style="vertical-align: middle; color:rgba(255,255,255,0.35);">無 H⁺ 可釋放<br><span style="font-size:0.7rem;">(非酸)</span></td>
+                <td style="padding: 5px 2px;">
+                  <div>可接 3 個 H⁺</div>
+                  <div style="white-space: nowrap; margin-top: 2px;">👉 <span class="cloze" style="color:var(--chalk-red); font-weight:bold;">三元鹼</span></div>
+                </td>
+                <td style="vertical-align: middle; white-space:nowrap;">多元鹼</td>
               </tr>
             </tbody>
           </table>
@@ -1706,7 +1761,7 @@
     (function recordPageView() {
       const counterEl = document.getElementById("pageViews");
       const timestamp = new Date().getTime();
-      const pageKey = "y-chinchan-acid-base-naming-structure-v5";
+      const pageKey = "y-chinchan-acid-base-naming-structure-v6";
       const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
 
       fetch(apiUrl)
