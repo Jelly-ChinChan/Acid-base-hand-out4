@@ -557,14 +557,6 @@
       border-color: #e2e8f0;
     }
 
-    .q-title-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 800;
-      font-size: 0.9rem;
-    }
-
     .q-badge {
       font-size: 0.72rem;
       padding: 2px 6px;
@@ -1717,7 +1709,7 @@
     const QUESTION_BANK = [
       {
         id: 1,
-        level: "大考綜合鑑別 · 酸鹼相態與氧化態命名全解析",
+        level: "酸鹼命名綜合",
         question: "下列關於各化合物之中文命名與酸鹼特性敘述，何者完全正確？",
         options: [
           "A. H₂S(g) 氣體與 H₂S(aq) 水溶液兩者相態不同，但中文名稱皆統稱為「氫硫酸」",
@@ -1731,7 +1723,7 @@
       },
       {
         id: 2,
-        level: "大考必考陷阱 · 磷酸、亞磷酸與次磷酸家族之元數",
+        level: "磷酸家族元數",
         question: "關於磷酸、亞磷酸與次磷酸家族相關物種的「酸／鹼元數」判定，下列敘述何者完全正確？",
         options: [
           "A. 亞磷酸氫根 (HPO₃²⁻) 含有 1 個氫，因此當酸時為一元酸，當鹼時為二元鹼，為兩性物種",
@@ -1744,7 +1736,7 @@
       },
       {
         id: 3,
-        level: "大考經典 · 非典型酸鹼之元數判定",
+        level: "非典型酸鹼",
         question: "下列關於各物質「元數」之判定，何者完全正確？",
         options: [
           "A. SO₃ 溶於水生成 H₂SO₄，因反應消耗 1 莫耳水，故 SO₃ 屬於一元酸",
@@ -1785,9 +1777,9 @@
         `).join('');
 
         qCard.innerHTML = `
-          <div class="q-title-row">
-            <span class="q-badge">${q.level}</span>
-            <span>第 ${idx + 1} 題：${q.question}</span>
+          <div style="margin-bottom: 6px;">
+            <span class="q-badge" style="display: inline-block; margin-bottom: 4px;">${q.level}</span>
+            <div style="font-weight: 800; font-size: 0.92rem; line-height: 1.5;">第 ${idx + 1} 題：${q.question}</div>
           </div>
           <div class="option-list">
             ${optsHtml}
@@ -1884,7 +1876,7 @@
     (function recordPageView() {
       const counterEl = document.getElementById("pageViews");
       const timestamp = new Date().getTime();
-      const pageKey = "y-chinchan-acid-base-naming-structure-v9";
+      const pageKey = "y-chinchan-acid-base-naming-structure-v10";
       const apiUrl = `https://api.counterapi.dev/v1/zhan-chemistry/${pageKey}/up?t=${timestamp}`;
 
       fetch(apiUrl)
